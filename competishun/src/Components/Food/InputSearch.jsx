@@ -35,21 +35,21 @@ export const InputSearch = ({placehoder,title,type}) => {
   return (
     <Stack>
        <Stack
-        mt={['25%','18%','14%','6%']}
+        mt={['25%','15%','10%','6%']}
         mb='.5%'
-         direction={'row'}
+         direction={['column','row','row','row']}
          justify={'center'}
          align={'center'}
          gap={'5%'}
          >
           <Text
-           fontSize={['2rem']}
+           fontSize={['2rem','1.5rem','1.8rem','2rem']}
            fontWeight={'600'}
            fontStyle={'oblique'}
            textShadow={"inherit"}
            >{title}</Text>
           <Input 
-          w='30%'
+          w={['80%','40%','35%','30%']}
           value={val}
           placeholder={placehoder}
           name="recipe"
@@ -58,7 +58,7 @@ export const InputSearch = ({placehoder,title,type}) => {
          _placeholder={{
           color:"green",
           textStyle:"italic",
-          fontSize: "1.5rem",
+          fontSize: ["1.5rem","1rem","1.2rem","1.5rem"],
           fontStyle:"italic"
           
          }}

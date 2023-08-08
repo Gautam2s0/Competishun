@@ -26,7 +26,7 @@ if(recipes.isLoading){
     <Stack
     >
  <Stack
- mt={['25%','18%','14%','6%']}
+  mt={['25%','18%','18%','6%']}
  mb='.5%'
   direction={'row'}
   justify={'center'}

@@ -15,8 +15,6 @@ export const List = (data) => {
       fontSize={["1.5rem"]}
       >Ooops, nothing in our recipes database matches what you are searching for! Please try again.</Text>
     }
-    console.log("DData",data)
-
   return (
     <Stack>
         <Stack
