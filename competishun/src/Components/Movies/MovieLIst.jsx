@@ -1,10 +1,12 @@
-import { Grid, Heading, Stack, Text } from '@chakra-ui/react'
-import React from 'react';
-import { Card } from './RecipeCard';
+import React from 'react'
+import { Grid, Stack, Text } from '@chakra-ui/react'
+import { MovieCard } from './MovieCard'
 
 
-export const List = (data) => {
-    data=data.data
+
+
+export const MovieLIst = (data) => {
+   data=data.data
     if(!data||data.length==0){
       console.log("yes")
       return <Text
@@ -13,9 +15,8 @@ export const List = (data) => {
       mt={'5%'}
       fontWeight={600}
       fontSize={["1.5rem"]}
-      >Ooops, nothing in our recipes database matches what you are searching for! Please try again.</Text>
+      >Ooops, nothing in our movie database matches what you are searching for! Please try again.</Text>
     }
-
   return (
     <Stack>
         <Stack
@@ -32,8 +33,7 @@ export const List = (data) => {
         >
           {data&& data.map((el,i)=>{
             return(
-              
-              <Card props={el} key={i} />
+              <MovieCard {...el} key={i} />
             )
           })}
 
@@ -42,3 +42,4 @@ export const List = (data) => {
     </Stack>
   )
 }
+
