@@ -1,8 +1,10 @@
 import { legacy_createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import {ResReducer} from "./RecipeStore/ResReducer"
+import {ResReducer} from "./Food/Recipe/ResReducer";
+import {CalReducer} from "./Food/Calorie/CalReducer"
 const rootReducer = combineReducers({
-  ResReducer
+  ResReducer,
+  CalReducer
   });
   const store = legacy_createStore(rootReducer, applyMiddleware(thunk));
   

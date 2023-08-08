@@ -38,21 +38,13 @@ export const Home = () => {
              direction='row' 
              justify={'center'} 
              spacing={'20%'} 
-            //  _hover={{
-            //     transform:"scale(1.1)",
-            //     transitionDelay:"2s"
-            //  }}
-            //  _groupHover={{
-            //     transform:"scale(1.1)",
-
-            //  }}
-             
             >
             <Link to="/movie" 
            className='ppp'
             >Movie</Link>
-            <Link to="/recipe" className='ppp' >Recipe</Link>
+           
             <Link to="/hotel" className='ppp' >Hotel</Link>
+            <Link to="/food" className='ppp' >Food</Link>
             </Stack>
 
         </Stack>
