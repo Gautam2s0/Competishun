@@ -1,0 +1,3 @@
+export const RES_GET_REQUEST='RES_GET_REQUEST';
+export const RES_GET_SUCCESS="RES_GET_SUCCESS";
+export const RES_GET_FAILED="RES_GET_FAILED";

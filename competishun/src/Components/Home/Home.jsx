@@ -1,0 +1,62 @@
+import { Heading, Image, Stack } from '@chakra-ui/react'
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { MainRouter } from '../Router/MainRouter'
+import logo from "../Images/logocomp.png.crdownload"
+import {} from "../../App.css"
+
+export const Home = () => {
+  return (
+    <Stack>
+        <Stack 
+        direction='row' 
+        h={'10vh'} 
+        w={'100vw'} 
+        justify={'space-around'} 
+        align={'center'}
+        spacing={'10%'} 
+        fontSize={'2rem'} 
+        bg={'#333'} 
+        fontWeight={700} 
+        fontFamily={"revert"} 
+        color={'#fff'} 
+        position={"fixed"} 
+        top={0} 
+        zIndex={4}>
+            <Stack h="100%" align={'center'} direction={'row'}>
+                <Link to="/" style={{height:"100%",alignItems:"center",display:"flex"}}>
+                <Image
+                width={'100%'}
+                h={'60%'}
+
+                src={logo}  
+                alt='loginError'
+                 />
+                </Link>
+            </Stack>
+            <Stack
+             direction='row' 
+             justify={'center'} 
+             spacing={'20%'} 
+            //  _hover={{
+            //     transform:"scale(1.1)",
+            //     transitionDelay:"2s"
+            //  }}
+            //  _groupHover={{
+            //     transform:"scale(1.1)",
+
+            //  }}
+             
+            >
+            <Link to="/movie" 
+           className='ppp'
+            >Movie</Link>
+            <Link to="/recipe" className='ppp' >Recipe</Link>
+            <Link to="/hotel" className='ppp' >Hotel</Link>
+            </Stack>
+
+        </Stack>
+       
+    </Stack>
+  )
+}
