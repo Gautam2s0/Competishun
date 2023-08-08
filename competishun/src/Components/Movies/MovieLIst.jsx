@@ -33,7 +33,7 @@ export const MovieLIst = (data) => {
         >
           {data&& data.map((el,i)=>{
             return(
-              <MovieCard {...el} key={i} />
+              <MovieCard {...el} key={el.id} />
             )
           })}
 
