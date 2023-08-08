@@ -8,9 +8,11 @@ const CalGetRequest=()=>{
         type:CAL_GET_REQUEST
     }
 }
-const CalGetFailed=()=>{
+const CalGetFailed=(payload)=>{
     return{
-        type:CAL_GET_FAILED
+        type:CAL_GET_FAILED,
+        payload
+        
     }
 }
 const CalGetSuccess=(payload)=>{
@@ -29,7 +31,7 @@ export const GetCalRecipes=(query=116)=>(dispatch)=>{
         dispatch(CalGetSuccess(res.data))
     })
     .catch((err)=>{
-        dispatch(CalGetFailed())
+        dispatch(CalGetFailed(err.message))
     })
     
 

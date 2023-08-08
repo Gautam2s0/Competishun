@@ -1,9 +1,10 @@
-import { Box, Stack,  } from '@chakra-ui/react'
+import { Box, Heading, Stack,  } from '@chakra-ui/react'
 import React, { useEffect, } from 'react'
 import { useSelector,useDispatch } from 'react-redux';
 import {GetRecipes} from "../Redux/Food/Recipe/ResAction"
 import { InputSearch } from './InputSearch';
 import { List } from './List';
+import { ErrorMes } from '../ErrorMessage/ErrorMes';
 
 export const Recipe = () => {
   const recipes=useSelector((store)=>store.ResReducer)
@@ -12,7 +13,17 @@ export const Recipe = () => {
  
   useEffect(()=>{
     dispatch(GetRecipes())
+    // Loading
+  if(recipes.isLoading){
+    return <Heading mt={["25%","20%"]}>Loading ...</Heading> 
+  }
   },[])
+
+  // if Error occurs
+  if(recipes.isError){
+    return <ErrorMes/>
+  }
+  // without error occurs
   return (
     <Stack
     

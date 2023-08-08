@@ -1,32 +1,27 @@
-import {
-    CAL_GET_REQUEST,
-    CAL_GET_SUCCESS,
-    CAL_GET_FAILED,
-  } from "./CalActionType";
-  
+import {DIET_GET_REQUEST,DIET_GET_SUCCESS,DIET_GET_FAILED} from "./DiActionTypes";
   const initalData = {
     recipes: [],
     isError: false,
     isLoading: false,
   };
-  export const CalReducer = (state = initalData, { type, payload }) => {
+  export const DietReducer = (state = initalData, { type, payload }) => {
     switch (type) {
-      case CAL_GET_REQUEST:
+      case DIET_GET_REQUEST:
         return {
           ...state,
           isLoading: true,
         };
-      case CAL_GET_SUCCESS:
+      case DIET_GET_SUCCESS:
         return {
           ...state,
           recipes: payload,
           isLoading: false,
         };
-      case CAL_GET_FAILED:
+      case DIET_GET_FAILED:
         return {
           ...state,
           isLoading: false,
-          isError: payload,
+          isError: true,
         };
       default:
         return state;

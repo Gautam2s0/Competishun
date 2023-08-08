@@ -1,8 +1,7 @@
-import { Heading, Image, Stack } from '@chakra-ui/react'
+import {  Image, Stack } from '@chakra-ui/react'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { MainRouter } from '../Router/MainRouter'
-import logo from "../Images/logocomp.png.crdownload"
+import logo from "../Images/logocomp.png"
 import {} from "../../App.css"
 
 export const Home = () => {

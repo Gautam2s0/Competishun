@@ -25,6 +25,7 @@ export const ResReducer = (state = initalData, { type, payload }) => {
     case RES_GET_FAILED:
       return {
         ...state,
+        isLoading: false,
         isError: true,
       };
     default:

@@ -5,17 +5,17 @@ import { Card } from './RecipeCard';
 
 export const List = (data) => {
     data=data.data
-    // if(data.length===0){
-    //   return <Text
-    //   textAlign={"center"}
-    //   color={"green"}
-    //   mt={'5%'}
-    //   fontWeight={600}
-    //   fontSize={["1.5rem"]}
-      
-    
-    //   >Ooops, nothing in our recipes database matches what you are searching for! Please try again.</Text>
-    // }
+    if(!data||data.length==0){
+      console.log("yes")
+      return <Text
+      textAlign={"center"}
+      color={"green"}
+      mt={'5%'}
+      fontWeight={600}
+      fontSize={["1.5rem"]}
+      >Ooops, nothing in our recipes database matches what you are searching for! Please try again.</Text>
+    }
+    console.log("DData",data)
 
   return (
     <Stack>

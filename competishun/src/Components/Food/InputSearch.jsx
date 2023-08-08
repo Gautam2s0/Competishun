@@ -1,4 +1,4 @@
-import { Input, Stack, Text } from '@chakra-ui/react'
+import { Input, Stack, Text, useToast } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { GetRecipes } from '../Redux/Food/Recipe/ResAction';
@@ -7,8 +7,10 @@ import {GetCalRecipes} from "../Redux/Food/Calorie/CalAction";
 export const InputSearch = ({placehoder,title,type}) => {
     const [val,setVal]=useState("")
     const dispatch=useDispatch()
-    const[query,setQuery]=useState("indian")
+    const[query,setQuery]=useState("indian");
+    const Toast=useToast()
     let id;
+    let p;
 
    
     
@@ -20,14 +22,15 @@ export const InputSearch = ({placehoder,title,type}) => {
         id=setTimeout(()=>{
           if(type==="calorie"){
             setQuery(116)
+            p=e.target.value.split("").map(Number)
+            if(p.includes(NaN)){
+              return 
+            }
             dispatch(GetCalRecipes(e.target.value?e.target.value:query))
             console.log("yesCal",query)
           }
           dispatch(GetRecipes(e.target.value?e.target.value:query))
-          
-         
-        },1000)
-        
+        },1000) 
       }
   return (
     <Stack>
