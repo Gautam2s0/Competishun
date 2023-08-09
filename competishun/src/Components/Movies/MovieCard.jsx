@@ -4,25 +4,45 @@ import React, { useState } from 'react'
 import {useSelector} from "react-redux";
 import { useToast } from '@chakra-ui/react'
 import { useDispatch } from 'react-redux';
-import { GetMovie } from '../Redux/Movie/MovieAction';
+import { AddFavMovie, AddWatMovie, GetMovie } from '../Redux/Movie/MovieAction';
+import {MdOutlineFavoriteBorder,MdBookmark} from "react-icons/md";
+import {useNavigate} from "react-router-dom"
 
-export const MovieCard = ({poster_path,title,id,genre_ids,overview}) => {
-    let poster=`https://v3img.voot.com/resizeMedium,w_1090,h_613/v3Storage/assets/bloody-daddy-16x9-1687775864575.jpg`
-    const movie=useSelector((store)=>store.MovieReducer.movies)
+export const MovieCard = ({data}) => {
+  const {poster_path,title,id,genre_ids,overview,release_date}=data
+  const navigate=useNavigate()
     const dispatch=useDispatch()
-    const url=`https://api.themoviedb.org/3/discover/movie?api_key=0f6364113f82983e5594bc6194faf192`
-  
-   
-    const Toast = useToast()
-    console.log({poster_path,title,id,genre_ids,overview})
-    console.log("poster",movie)
-
-    const handleClick=()=>{
-        const url=`https://api.themoviedb.org/3/movie/${id}?api_key=0f6364113f82983e5594bc6194faf192`
-        GetMovie(url)
-        alert(id)
-    }
+    const toast = useToast()
     
+
+    // Favorite
+    const handleFavorite=()=>{
+        dispatch(AddFavMovie())
+       
+        toast({
+          description: "Movie added in your favorite list.",
+          status: 'success',
+          duration: 5000,
+          position:"top-center",
+          isClosable: true,
+        })
+    }
+    // Watchlist
+    const handleWatchList=()=>{
+      dispatch(AddWatMovie(data))
+      
+      toast({
+        description: "Movie added in your Watchlist list.",
+        status: 'success',
+        duration: 5000,
+        position:"top-center",
+        isClosable: true,
+      })
+
+    }
+    const HandleClick=()=>{
+      navigate(`/moviedetails/:${id}`)
+    }
    
   return (
     <Stack 
@@ -36,36 +56,68 @@ export const MovieCard = ({poster_path,title,id,genre_ids,overview}) => {
         transitionDuration:"1s"
     }}
     cursor={'pointer'}
-    onClick={handleClick}
-   
+    h={"60vh"}
+    
+    
     >
-        
        <Stack 
        h={'100%'}
-      
-
+       
         >
         <Image 
-        src={poster} 
+        src={`https://image.tmdb.org/t/p/original/${poster_path}`}
         alt={id} 
         borderRadius={'5%'} 
         borderBottomRadius={"0"}
-        h='60%'
+        h='55%'
+        onClick={HandleClick}
+        _hover={{
+          opacity:".7"
+        }}
         /> 
         <Stack 
-        h='30%'
         
+        h='40%'
+        mt='1%'
+        
+       
+        left={30}
         fontWeight={600}
         color={'#708090'}
-       
+        boxSizing='border-box'
+        textAlign={'center'}
         >
-            <Heading fontSize={['1.2rem','1rem','1.2rem','1.5rem']} textAlign={'center'} color={"#2F4F4F"} >{title}</Heading>
-            <Text>genre_id : {genre_ids[0]}</Text>
+            <Heading 
+            h="30%" 
+            fontSize={['1.2rem','1rem','1.2rem','1.4rem']}   
+            color={"#2F4F4F"}
+            onClick={HandleClick}
+            _hover={{
+              color:"teal"
+            }}
+             
+             >{title}</Heading>
+            <Text >genre_id : {genre_ids[0]}</Text>
+            <Text >{release_date}</Text>
+            <Stack 
+        
+        direction={'row'}
+        justify={'space-between'}
+        gap={'10%'}
+        align={'center'}
+        p='2% 5%'
+        fontSize={'1.5rem'}
+        mt='2%'
+        boxSizing='border-box'
+        h={'30%'}
+        
+        
+        >
+          <MdOutlineFavoriteBorder  onClick={handleFavorite} />
+          <MdBookmark  onClick={handleWatchList} />
         </Stack>
-        
-        
+        </Stack>
        </Stack>
     </Stack>
   )
 }
-// recipes.hits

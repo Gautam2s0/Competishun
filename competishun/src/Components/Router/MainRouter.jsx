@@ -8,6 +8,9 @@ import { Movie } from '../Movies/Movie';
 import { Food } from '../Food/Food';
 import { Calorie } from '../Food/Calorie';
 import { Diet } from '../Food/Diet';
+import { MovieDetails } from '../Movies/MovieDetails';
+import { Favorite } from '../Movies/Favorite';
+import { Watchlist } from '../Movies/Watchlist';
 
 export const MainRouter = () => {
   return (
@@ -19,7 +22,10 @@ export const MainRouter = () => {
             <Route path='/food' element={<Food/>} />
             <Route path='/recipe' element={<Recipe/>} />
             <Route path='/diet' element={<Diet/>} />
+            <Route path='/favorite' element={<Favorite/>} />
+            <Route path='/watchlist' element={<Watchlist/>} />
             <Route path="/calorie" element={<Calorie/>} ></Route>
+            <Route path='moviedetails/:id' element={<MovieDetails/>}  />
         </Routes>
    
   )

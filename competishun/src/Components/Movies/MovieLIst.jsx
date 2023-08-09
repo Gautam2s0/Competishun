@@ -27,13 +27,13 @@ export const MovieLIst = (data) => {
         w={'90%'}
         m='auto'
         boxSizing='border-box'
-        templateColumns={['repeat(1, 1fr)','repeat(2, 1fr)','repeat(2, 1fr)','repeat(3, 1fr)']}
+        templateColumns={['repeat(1, 1fr)','repeat(2, 1fr)','repeat(3, 1fr)','repeat(4, 1fr)']}
         columnGap={['5%','5%','5%','5%']}
         rowGap={['.5%','1%','2%','2%']}
         >
           {data&& data.map((el,i)=>{
             return(
-              <MovieCard {...el} key={el.id} />
+              <MovieCard data={el} key={el.id} />
             )
           })}
 
