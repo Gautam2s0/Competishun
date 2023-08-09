@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import logo from "../Images/logocomp.png"
 import {} from "../../App.css"
 
+
 export const Home = () => {
   return (
     <Stack>
@@ -47,6 +48,7 @@ export const Home = () => {
             </Stack>
 
         </Stack>
+        
        
     </Stack>
   )

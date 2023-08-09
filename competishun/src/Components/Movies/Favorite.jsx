@@ -9,7 +9,9 @@ export const Favorite = () => {
   console.log("moviefff",movie)
 
   return (
-    <Stack>
+    <Stack
+    mt='6%'
+    >
       {
         <MovieLIst data={movie.results} />
       }
